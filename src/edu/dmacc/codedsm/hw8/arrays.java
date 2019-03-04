@@ -4,15 +4,18 @@ import java.util.Random;
 
 public class arrays {
 
+    public static String[] validStrings = new String[5];
+    public static int x = 0;
+
     public static void main(String[] args) {
-        int randomStringLength;
-        String[] anything = new String[5];
-
-        for (int i = 0; i < anything.length; i++) {
-            System.out.println(anything[i]);
-
+        while (x < 5) {
+            addString(createRandomAlphaNumericString(5));
+        }
+        for (int j = 0; j < 5; j++) {
+            System.out.println(validStrings[j]);
         }
     }
+
     public static String createRandomAlphaNumericString(int randomStringLength) {
         int leftLimit = 97; // letter 'a'
         int rightLimit = 122; // letter 'z'
@@ -33,26 +36,17 @@ public class arrays {
         }
         return buffer.toString();
     }
+
+    public static void addString(String value) {
+        if (value.matches(".*\\d+.*")) {
+            System.out.println("numbers encountered. NO NO NO");
+        } else {
+            if (value.matches("([AEIOU]).*")) {
+                validStrings[x] = value;
+                x++;
+            }
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
